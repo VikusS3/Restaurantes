@@ -1,0 +1,22 @@
+---
+import Hero from "@/components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Services from "@/components/Services.astro";
+import About from "@/components/About.astro";
+import New from "@/components/New.astro";
+import Menu from "@/components/Menu.astro";
+
+import { info } from "@data";
+
+const { name, description } = info;
+---
+
+<Layout title={name} description={description}>
+  <Hero />
+  <Services />
+  <About />
+  <Menu />
+  <New />
+</Layout>
+
+<style></style>

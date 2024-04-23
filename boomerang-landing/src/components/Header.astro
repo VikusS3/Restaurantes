@@ -1,0 +1,43 @@
+---
+import Logo from "@/Icons/logo.astro";
+
+const navItems = [
+  {
+    name: "Home",
+    ariaLabel: "Home",
+    url: "#Home",
+  },
+  {
+    name: "About",
+    ariaLabel: "About",
+    url: "#About",
+  },
+  {
+    name: "Menu",
+    ariaLabel: "Menu",
+    url: "#Menu",
+  },
+  {
+    name: "New",
+    ariaLabel: "New",
+    url: "#New",
+  },
+];
+---
+
+<header class="flex flex-row justify-between items-center w-full">
+  <div class="flex flex-row justify-center items-center gap-4">
+    <Logo class="w-10 h-10" />
+    <h1 class="text-xl font-semibold">Boomerang</h1>
+  </div>
+
+  <nav class="flex flex-row justify-center items-center gap-12">
+    {navItems.map((item) => <a
+      class="text-xl font-semibold cursor-pointer hover:text-button transition-colors duration-300 ease-in-out"
+      role="link"
+      aria-label={item.ariaLabel}
+      href={item.url}
+    >{item.name}</a>)}
+    <button class="text-xl  bg-button rounded-full px-8 py-3"> Support </button>
+  </nav>
+</header>
