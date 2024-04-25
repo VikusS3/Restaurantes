@@ -1,3 +1,25 @@
-<h1>
-    Menu
-</h1>
+---
+import MenuItem from "./MenuItem.astro";
+import { Menus } from "@data";
+
+const { platos } = Menus;
+---
+
+<section
+  class="w-full mt-48 flex flex-col justify-center items-center"
+  id="Menu"
+>
+  <h1 class="text-4xl">Nuestro Menu</h1>
+  <div class="flex flex-row  flex-wrap justify-center items-center mt-16 gap-y-10">
+    {
+      platos.map((plato) => (
+        <MenuItem
+          name={plato.nombre ? plato.nombre : ""}
+          type={plato.tipo}
+          price={plato.precio}
+          image={plato.imagen}
+        />
+      ))
+    }
+  </div>
+</section>

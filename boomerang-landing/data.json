@@ -6,24 +6,71 @@
         "address": "Av. Los Incas 123",
         "sobre_nosotros": "Somos un restaurante que se dedica a la venta de comidas rapidas, con mas de 10 años de experiencia en el mercado, ofreciendo la mejor calidad y servicio a nuestros clientes."
     },
-    "platos":{
-        "plato1":{
-            "name": "Pollo a la brasa",
-            "description": "Pollo a la brasa con papas fritas y ensalada",
-            "price": "S/ 25.00",
-            "image": "https://www.cocinavital.mx/wp-content/uploads/2019/10/pollo-a-la-brasa.jpg"
-        },
-        "plato2":{
-            "name": "Hamburguesa",
-            "description": "Hamburguesa con papas fritas y gaseosa",
-            "price": "S/ 15.00",
-            "image": "https://www.cocinavital.mx/wp-content/uploads/2019/10/hamburguesa.jpg"
-        },
-        "plato3":{
-            "name": "Chifa",
-            "description": "Arroz chaufa con pollo y tallarin saltado",
-            "price": "S/ 20.00",
-            "image": "https://www.cocinavital.mx/wp-content/uploads/2019/10/arroz-chaufa.jpg"
-        }
+    "Menus":{
+        "platos":[
+            {
+                "nombre": "Neapolitan Pizaa",
+                "tipo": "Comida Rapida",
+                "precio": "S/. 20.00",
+                "imagen": "/menu-6.webp"
+            },
+            {
+                "nombre": "Hamburguesa",
+                "tipo": "Comida Rapida",
+                "precio": "S/. 15.00",
+                "imagen": "/menu-2.webp"
+            },
+            {
+                "nombre": "Spaguetti Carbonara",
+                "tipo": "Comida Saludable",
+                "precio": "S/. 25.00",
+                "imagen": "/menu-3.webp"
+            },
+            {
+                "nombre": "Pepperoni Pizza",
+                "tipo": "Chifa",
+                "precio": "S/. 20.00",
+                "imagen": "/menu-4.webp"
+            },
+            {
+                "nombre": "Ensalada de Pescado",
+                "tipo": "Comida Saludable",
+                "precio": "S/. 20.00",
+                "imagen": "/menu-5.webp"
+            },
+            {
+                "nombre": "Arroz Chaufa",
+                "tipo": "Chifa",
+                "precio": "S/. 15.00",
+                "imagen": "/menu-6.webp"
+            }
+        ],
+        "news":[
+            {
+                "id": "1",
+                "nombre": "Pollo a la Brasa",
+                "tipo": "Comida Rapida",
+                "precio": "S/. 25.00",
+                "precio_now": "S/. 20.00",
+                "imagen": "/NuevoPlato.webp"
+            },
+            {
+                "id": "2",
+                "nombre": "Lomo Saltado",
+                "tipo": "Chifa",
+                "precio": "S/. 30.00",
+                "precio_now": "S/. 21.00",
+                "imagen": "/NuevoPlato.webp"
+            },
+            {
+                "id": "3",
+                "nombre": "Ceviche de Pescado",
+                "tipo": "Comida Saludable",
+                "precio": "S/. 15.00",
+                "precio_now": "S/. 10.00",
+                "imagen": "/NuevoPlato.webp"
+            }
+        ]
+        
     }
 }

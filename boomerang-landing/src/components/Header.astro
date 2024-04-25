@@ -25,7 +25,7 @@ const navItems = [
 ];
 ---
 
-<header class="flex flex-row justify-between items-center w-full">
+<header class="header_scroll flex flex-row justify-between items-center w-full">
   <div class="flex flex-row justify-center items-center gap-4">
     <Logo class="w-10 h-10" />
     <h1 class="text-xl font-semibold">Boomerang</h1>
@@ -41,3 +41,25 @@ const navItems = [
     <button class="text-xl  bg-button rounded-full px-8 py-3"> Support </button>
   </nav>
 </header>
+
+<style>
+  .header_scroll{
+    position: sticky;
+    animation-timeline: scroll();
+    backdrop-filter: blur(10px);
+    animation: header_animate;
+    padding: 0.5rem ;
+    z-index: 1000;
+    top: 0;
+  }
+
+  @keyframes header_animate{
+    0%{
+      background-color: rgba(0,0,0,0);
+    }
+    100%{
+      background-color: rgba(0,0,0,0.8);
+    
+    }
+  }
+</style>

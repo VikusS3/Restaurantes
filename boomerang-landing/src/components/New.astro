@@ -1,3 +1,28 @@
-<h1>
-    Menu
-</h1>
+---
+import { Menus } from "@data";
+import NewItem from "./NewItem.astro";
+
+const { news } = Menus;
+---
+
+<section
+  class="w-full mt-48 flex flex-col justify-center items-center"
+  id="New"
+>
+  <h1 class="text-4xl">Nuevas Ofertas</h1>
+  <div
+    class="flex flex-row flex-wrap justify-center items-center mt-16 gap-y-10"
+  >
+    {
+      news.map(({ nombre, precio, precio_now, imagen, tipo }) => (
+        <NewItem
+          name={nombre}
+          price={precio}
+          price_now={precio_now}
+          image={imagen}
+          type={tipo}
+        />
+      ))
+    }
+  </div>
+</section>

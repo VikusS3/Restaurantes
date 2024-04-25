@@ -1,0 +1,37 @@
+---
+import GardenCar from "@/Icons/GardenCar.astro";
+
+interface Props {
+  name: string;
+  type: string;
+  price: string;
+  price_now: string;
+  image: string;
+}
+
+const { name, type, price, price_now, image } = Astro.props;
+---
+
+<article
+  class="relative w-[450px] h-[320px] flex items-center justify-center flex-col gap-3"
+>
+  <span class="absolute top-0 left-0 bg-button px-4 py-3 text-white rounded-lg font-bold">
+    Nuevo
+  </span>
+  <header>
+    <img class="w-40 h-40" src={image} alt={name} />
+  </header>
+  <div class="flex flex-col justify-center items-center gap-1">
+    <h2 class="text-3xl">{name}</h2>
+    <span class="text-secondary text-lg"> {type}</span>
+  </div>
+  <footer class="flex flow-row items-center justify-center gap-3">
+    <span class="text-xl">{price}</span>
+    <span class="text-sm text-button">{price_now}</span>
+  </footer>
+  <button
+    class="absolute bottom-0 right-0 bg-button p-3 rounded-tl-lg rounded-tr-lg rounded-br-2xl rounded-bl-lg"
+  >
+    <GardenCar />
+  </button>
+</article>
