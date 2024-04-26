@@ -1,14 +1,16 @@
 ---
+import MenuClose from "@/Icons/MenuClose.astro";
+import MenuOpen from "@/Icons/MenuOpen.astro";
 import Logo from "@/Icons/logo.astro";
 
 const navItems = [
   {
-    name: "Home",
+    name: "Inicio",
     ariaLabel: "Home",
     url: "#Home",
   },
   {
-    name: "About",
+    name: "Nosotros",
     ariaLabel: "About",
     url: "#About",
   },
@@ -18,7 +20,7 @@ const navItems = [
     url: "#Menu",
   },
   {
-    name: "New",
+    name: "Nuevo",
     ariaLabel: "New",
     url: "#New",
   },
@@ -26,40 +28,71 @@ const navItems = [
 ---
 
 <header class="header_scroll flex flex-row justify-between items-center w-full">
-  <div class="flex flex-row justify-center items-center gap-4">
+  <div
+    class="flex flex-row justify-center items-center gap-4 animate-slide-in-bottom"
+  >
     <Logo class="w-10 h-10" />
     <h1 class="text-xl font-semibold">Boomerang</h1>
   </div>
 
-  <nav class="flex flex-row justify-center items-center gap-12">
-    {navItems.map((item) => <a
-      class="text-xl font-semibold cursor-pointer hover:text-button transition-colors duration-300 ease-in-out"
-      role="link"
-      aria-label={item.ariaLabel}
-      href={item.url}
-    >{item.name}</a>)}
-    <button class="text-xl  bg-button rounded-full px-8 py-3"> Support </button>
+  <nav
+    class="desktop_nav flex flex-row justify-center items-center gap-12 animate-slide-in-bottom"
+  >
+    {
+      navItems.map((item) => (
+        <a
+          class="text-xl font-semibold cursor-pointer hover:text-button hover:mb-1 transition-all duration-300 ease-in-out"
+          role="link"
+          aria-label={item.ariaLabel}
+          href={item.url}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+    <button class="text-xl bg-button rounded-full px-8 py-3"> Apoyo </button>
   </nav>
+  <button class="MenuBtnOpen">
+    <MenuOpen class="w-10 h-10" />
+  </button>
+  <button class="MenuBtnClose">
+    <MenuClose class="w-10 h-10" />
+  </button>
 </header>
 
 <style>
-  .header_scroll{
+  .header_scroll {
     position: sticky;
     animation-timeline: scroll();
     backdrop-filter: blur(10px);
     animation: header_animate;
-    padding: 0.5rem ;
+    padding: 0.5rem;
     z-index: 1000;
     top: 0;
   }
+  .MenuBtnOpen {
+    display: none;
+  }
+  .MenuBtnClose {
+    display: none;
+  }
 
-  @keyframes header_animate{
-    0%{
-      background-color: rgba(0,0,0,0);
+  @media screen and (max-width: 900px){
+    .desktop_nav {
+      display: none;
     }
-    100%{
-      background-color: rgba(0,0,0,0.8);
-    
+    .MenuBtnOpen {
+      display: block;
     }
   }
+  @keyframes header_animate {
+    30% {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+
 </style>

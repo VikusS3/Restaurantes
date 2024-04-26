@@ -3,11 +3,11 @@ import ServiceItem from "./ServiceItem.astro";
 ---
 
 <section class="w-full mt-48 felx flex-col justify-center items-center flex-wrap">
-    <h1 class="text-center text-4xl mb-20">
+    <h1 class="text-center text-4xl mb-20 animate-pop [animation-range:0px_400px] [animation-timeline:view()]">
         Nuestros Servicios
     </h1>
-    <div class="flex flex-row justify-center items-center gap-20">
-        <ServiceItem title="Servicio 24/07" description="Servicios las 24/07 durante el año" img="/services-24-07.webp"/>
+    <div class="flex flex-row justify-center items-center gap-20 animate-blurred-fade-in [animation-range:0px_400px] [animation-timeline:view()]">
+        <ServiceItem title="Servicio 24 / 07" description="Servicios las 24/07 durante el año" img="/services-24-07.webp"/>
         <ServiceItem title="Delivery" description="Servicios las 24/07 durante el año" img="/fast-delivery.webp"/>
         <ServiceItem title="Comida Deliciosa" description="Servicios las 24/07 durante el año" img="/food-1.webp"/>
     </div>
