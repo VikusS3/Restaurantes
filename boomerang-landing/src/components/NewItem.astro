@@ -13,13 +13,13 @@ const { name, type, price, price_now, image } = Astro.props;
 ---
 
 <article
-  class="relative w-[450px] h-[320px] flex items-center justify-center flex-col gap-3"
+  class="relative sm:w-[450px] w-[320px] h-max sm:h-[320px] flex items-center justify-center flex-col gap-3"
 >
-  <span class="absolute top-0 left-0 bg-button px-4 py-3 text-white rounded-lg font-bold">
+  <span class="sm:absolute sm:top-0 sm:left-0 sm:mb-0 mb-3 bg-button px-4 py-3 text-white rounded-lg font-bold">
     Nuevo
   </span>
   <header>
-    <img class="w-40 h-40" src={image} alt={name} />
+    <img  src={image} alt={name} />
   </header>
   <div class="flex flex-col justify-center items-center gap-1">
     <h2 class="text-3xl">{name}</h2>
@@ -30,7 +30,7 @@ const { name, type, price, price_now, image } = Astro.props;
     <span class="text-sm text-button">{price_now}</span>
   </footer>
   <button
-    class="absolute bottom-0 right-0 bg-button p-3 rounded-tl-lg rounded-tr-lg rounded-br-2xl rounded-bl-lg"
+    class="sm:absolute sm:bottom-0 sm:right-0 bg-button p-3 rounded-tl-lg rounded-tr-lg rounded-br-2xl rounded-bl-lg" aria-label="Agregar al carrito"
   >
     <GardenCar />
   </button>

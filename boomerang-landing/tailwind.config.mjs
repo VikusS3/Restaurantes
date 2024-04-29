@@ -5,7 +5,7 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"button": "#F4511F",
+				"button": "#FF8917",
 				"secondary": "#DAD8D7"
 			},
 			supports: {

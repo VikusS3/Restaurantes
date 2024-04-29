@@ -27,7 +27,10 @@ const navItems = [
 ];
 ---
 
-<header class="header_scroll flex flex-row justify-between items-center w-full">
+<header
+  class="header_scroll flex flex-row justify-between items-center w-full"
+  id="Header"
+>
   <div
     class="flex flex-row justify-center items-center gap-4 animate-slide-in-bottom"
   >
@@ -36,28 +39,36 @@ const navItems = [
   </div>
 
   <nav
-    class="desktop_nav flex flex-row justify-center items-center gap-12 animate-slide-in-bottom"
+    class="relative desktop_nav sm:flex flex-row justify-center items-center gap-12 animate-slide-in-bottom"
   >
+    <div class="flex flex-row justify-center items-center gap-4 logo_mobile">
+      <Logo class="w-10 h-10" />
+      <h1 class="text-xl font-semibold">Boomerang</h1>
+    </div>
     {
       navItems.map((item) => (
         <a
-          class="text-xl font-semibold cursor-pointer hover:text-button hover:mb-1 transition-all duration-300 ease-in-out"
+          class="text-xl font-semibold cursor-pointer sm:hover:text-button sm:hover:mb-1 transition-all duration-300 ease-in-out"
           role="link"
           aria-label={item.ariaLabel}
           href={item.url}
+          id={item.url}
         >
           {item.name}
         </a>
       ))
     }
     <button class="text-xl bg-button rounded-full px-8 py-3"> Apoyo </button>
+    <button class="MenuBtnClose" aria-label="Cerrar Menu">
+      <MenuClose class="w-10 h-10 absolute top-0 right-0" />
+    </button>
   </nav>
-  <button class="MenuBtnOpen">
+  <button class="MenuBtnOpen" aria-label="Abrir Menu">
     <MenuOpen class="w-10 h-10" />
   </button>
-  <button class="MenuBtnClose">
+  <!-- <button class="MenuBtnClose" aria-label="Cerrar Menu">
     <MenuClose class="w-10 h-10" />
-  </button>
+  </button> -->
 </header>
 
 <style>
@@ -76,13 +87,39 @@ const navItems = [
   .MenuBtnClose {
     display: none;
   }
+  .logo_mobile {
+    display: none;
+  }
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 850px) {
     .desktop_nav {
       display: none;
     }
+    .logo_mobile {
+      display: flex;
+    }
     .MenuBtnOpen {
       display: block;
+    }
+
+    .MenuBtnClose {
+      display: block;
+    }
+
+    .active_menu {
+      display: inline-flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #121617;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      z-index: 1000;
+      animation: menuOpen 0.5s both;
     }
   }
   @keyframes header_animate {
@@ -94,5 +131,33 @@ const navItems = [
     }
   }
 
-
+  @keyframes menuOpen {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 </style>
+
+<script>
+  const menuBtnOpen = document.querySelector(".MenuBtnOpen");
+  const nav = document.querySelector(".desktop_nav");
+  const menuBtnClose = document.querySelector(".MenuBtnClose");
+
+  menuBtnOpen?.addEventListener("click", () => {
+    nav?.classList.add("active_menu");
+  });
+
+  menuBtnClose?.addEventListener("click", () => {
+    nav?.classList.remove("active_menu");
+  });
+
+  const navItems = document.querySelectorAll(".desktop_nav a");
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      nav?.classList.remove("active_menu");
+    });
+  });
+</script>
